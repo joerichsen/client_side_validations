@@ -70,7 +70,7 @@ module ClientSideValidations
       def is_unique?
         convert_scope_value_from_null_to_nil
         resource         = extract_resource
-        klass            = resource.classify.constantize
+        klass            = resource.gsub(/_.*/, '').classify.constantize
         attribute        = request.params[resource].keys.first
         value            = request.params[resource][attribute]
         middleware_class = nil
