@@ -19,7 +19,7 @@ module ClientSideValidations::ActiveRecord
           relation = t[attribute].eq(value)
         end
       else
-        relation = t[attribute].matches(value)
+        relation = t[attribute].eq(value)
       end
 
       if relation.is_a?(Arel::Nodes::SqlLiteral)
